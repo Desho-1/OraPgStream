@@ -53,16 +53,6 @@ Make sure the following are installed:
 
 Before running OraPgStream, LogMiner must be properly configured.
 
-## 📝 Notes
-These steps are mandatory for accurate CDC
-
-💡 For better performance under load, consider increasing:
-
-- PGA (pga_aggregate_target, pga_aggregate_limit)
-- Shared Pool (shared_pool_size)
-
-*(Tune based on your system capacity and workload)*
-
 - Run the following as a privileged user:
 
 ```sql
@@ -75,6 +65,16 @@ EXEC DBMS_LOGMNR_D.BUILD(
   OPTIONS => DBMS_LOGMNR_D.STORE_IN_REDO_LOGS
 );
 ```
+
+## 📝 Notes
+These steps are mandatory for accurate CDC
+
+💡 For better performance under load, consider increasing:
+
+- PGA (pga_aggregate_target, pga_aggregate_limit)
+- Shared Pool (shared_pool_size)
+
+*(Tune based on your system capacity and workload)*
 
 ---
 
