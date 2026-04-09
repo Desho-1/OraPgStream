@@ -17,7 +17,6 @@ Built for **simplicity**, **control**, and **speed**, OraPgStream runs entirely 
 - 📊 Applies changes in **batches** for better performance
 - 📦 Lightweight (Python-based, minimal dependencies)
 
----
 
 ## 🧩 How It Works
 Oracle (Redo Logs / LogMiner)
@@ -26,7 +25,14 @@ OraPgStream (CDC Engine)
 -->
 PostgreSQL (Apply Engine)
 
-
+## 📁 Project Structure
+```sql
+ ora2pg-cdc/
+  ├── cdc_engine/      # OraPgStream engine
+  ├── orchestrator/    # Workflow control (future use)
+  ├── state/           # SCN tracking (SQLite)
+  ├── config/          # Configuration files
+```
 ---
 
 ## 📦 Prerequisites
@@ -42,7 +48,6 @@ Make sure the following are installed:
 - `psycopg2`
 - `pyyaml`
 
----
 
 ## ⚠️ Important: Enable LogMiner (Oracle)
 
@@ -70,32 +75,28 @@ EXEC DBMS_LOGMNR_D.BUILD(
   OPTIONS => DBMS_LOGMNR_D.STORE_IN_REDO_LOGS
 );
 ```
+
+---
+
 # ▶️ Getting Started
 
 - download OraPgStream & install.sh
 - bash install.sh
 - source venv/bin/activate
-- run OraPgStream
+- run `./OraPgStream`
+### ⚠️ Note: OraPgStream runs continuously as a live replication tool
+To stop replication safely, press `Ctrl+C`.
 
-# 🔍 What OraPgStream Does
+## 🔍 What OraPgStream Does
 - Reads changes from Oracle using LogMiner
 - Tracks progress using SCN (System Change Number)
 - Converts Oracle redo into executable SQL
 - Applies changes to PostgreSQL in batches
 - Logs all operations for full visibility
 
-# 🔒 Security & Transparency
+## 🔒 Security & Transparency
 - ✅ Runs entirely locally
 - ✅ No external API calls
 - ✅ No data leaves your environment
 - ✅ Full logging and traceability
 
-  
-# 📁 Project Structure
-```sql
- ora2pg-cdc/
-  ├── cdc_engine/      # OraPgStream engine
-  ├── orchestrator/    # Workflow control (future use)
-  ├── state/           # SCN tracking (SQLite)
-  ├── config/          # Configuration files
-```
