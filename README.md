@@ -80,7 +80,7 @@ EXEC DBMS_LOGMNR_D.BUILD(
 
 # ▶️ Getting Started
 
-- download OraPgStream & install.sh
+- download OraPgStream.tar.gz, PgApply.tar.gz & install.sh
 - bash install.sh
 - source venv/bin/activate
 - run `./OraPgStream`
