@@ -48,7 +48,6 @@ Make sure the following are installed:
 - `psycopg2`
 - `pyyaml`
 
-### Schema
 
 ## ⚠️ Important: Before running OraPgStream
 - OraPgStream is designed to complement tools like ora2pg. Use ora2pg for the initial load (schema + data), then use OraPgStream to stream ongoing changes in real time.
