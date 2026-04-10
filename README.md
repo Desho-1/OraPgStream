@@ -48,7 +48,6 @@ Make sure the following are installed:
 - `psycopg2`
 - `pyyaml`
 
-
 ## ⚠️ Important: Enable LogMiner (Oracle)
 
 Before running OraPgStream, LogMiner must be properly configured.
@@ -68,8 +67,8 @@ EXEC DBMS_LOGMNR_D.BUILD(
 
 ## 📝 Notes
 These steps are mandatory for accurate CDC
-
-💡 For better performance under load, consider increasing:
+- ⚠️ This tool interacts with database internals (LogMiner, system views). Ensure proper privileges are granted before execution.
+- 💡 For better performance under load, consider increasing:
 
 - PGA (pga_aggregate_target, pga_aggregate_limit)
 - Shared Pool (shared_pool_size)
