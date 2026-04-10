@@ -48,11 +48,11 @@ Make sure the following are installed:
 - `psycopg2`
 - `pyyaml`
 
-## ⚠️ Important: Enable LogMiner (Oracle)
+### Schema
 
-Before running OraPgStream, LogMiner must be properly configured.
-
-- Run the following as a privileged user:
+## ⚠️ Important: Before running OraPgStream
+- OraPgStream is designed to complement tools like ora2pg. Use ora2pg for the initial load (schema + data), then use OraPgStream to stream ongoing changes in real time.
+-  Enable LogMiner (Oracle), Run the following as a privileged user: 
 
 ```sql
 -- Enable supplemental logging (required for CDC)
