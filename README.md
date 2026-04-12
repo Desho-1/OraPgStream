@@ -10,7 +10,8 @@ Built for **simplicity**, **control**, and **speed**, OraPgStream runs entirely 
 
 - ⚡ Fast to install — up and running in minutes  
 - 🔄 real-time CDC using Oracle LogMiner  
-- 🧠 SCN-based tracking for reliable replay  
+- 🧠 SCN-based tracking for reliable replay
+- 📁 Schema‑level replication  
 - 🔒 Fully local — no external connections  
 - 🛠️ Simple and transparent architecture  
 - 🔁 Automatic resume from last processed state 
