@@ -95,11 +95,11 @@ echo "✅ Oracle environment configured"
 # -------------------------------
 echo "📁 Creating project structure..."
 
-mkdir -p ~/ora2pg-cdc/{orchestrator,cdc_engine,state,config}
-tar -xzvf OraPgStream.tar.gz
-tar -xzvf PgApply.tar.gz
-mv OraPgStream pg_apply ~/ora2pg-cdc/cdc_engine/
-mv main.py ~/ora2pg-cdc/orchestrator/ 
+#mkdir -p ~/ora2pg-cdc/{orchestrator,cdc_engine,state,config}
+#tar -xzvf OraPgStream.tar.gz
+#tar -xzvf PgApply.tar.gz
+#mv OraPgStream pg_apply ~/ora2pg-cdc/cdc_engine/
+#mv main.py ~/ora2pg-cdc/orchestrator/
 cd ~/ora2pg-cdc
 
 # -------------------------------
@@ -146,6 +146,7 @@ read -p "User: " PG_USER
 read -s -p "Password: " PG_PASS
 echo ""
 
+
 # -------------------------------
 # 8️⃣ SAVE CONFIG
 # -------------------------------
@@ -168,6 +169,22 @@ postgres:
 
 oracle_client_path: "$ORACLE_PATH"
 EOF
+
+#  ------------------------------
+#   READING SCHEMAS
+#  ------------------------------
+
+schema=""
+echo "" >> config/config.yaml
+echo "schemas:" >> config/config.yaml
+while [[ "${schema,,}" != "no" ]]; do
+    read -p "Enter Schema (or type 'no' to continue): " schema
+
+    if [[ "${schema,,}" != "no" ]]; then
+        echo "  - $schema" >> config/config.yaml
+    fi
+done
+
 
 echo "✅ Config saved at config/config.yaml"
 
