@@ -69,9 +69,8 @@ EXEC DBMS_LOGMNR_D.BUILD(
 These steps are mandatory for accurate CDC
 - ⚠️ This tool interacts with database internals (LogMiner, system views). Ensure proper privileges are granted before execution.
 - 💡 For better performance under load, consider increasing:
-
-- PGA (pga_aggregate_target, pga_aggregate_limit)
-- Shared Pool (shared_pool_size)
+  * PGA (pga_aggregate_target, pga_aggregate_limit)
+  * Shared Pool (shared_pool_size)
 
 *(Tune based on your system capacity and workload)*
 
