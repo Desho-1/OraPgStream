@@ -99,3 +99,12 @@ To stop replication safely, press `Ctrl+C`.
 - ✅ No data leaves your environment
 - ✅ Full logging and traceability
 
+##  🎯 Why OraPgStream beats the alternatives
+
+| Approach | Latency | Complexity | External Services | Cost |
+|----------|---------|------------|-------------------|------|
+| **Ora2pg (batch)** | Minutes/hours | Low | None | Free |
+| **GoldenGate** | Milliseconds | Very high | Optional | $$$$$ |
+| **Debezium + Kafka** | Milliseconds | Very high | Kafka, ZK, Connect | $$$ |
+| **OraPgStream** | Milliseconds | **Low** | **None** | **Free** |
+
