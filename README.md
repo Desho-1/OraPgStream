@@ -14,7 +14,8 @@ Built for **simplicity**, **control**, and **speed**, OraPgStream runs entirely 
 - 📁 Schema‑level replication  
 - 🔒 Fully local — no external connections  
 - 🛠️ Simple and transparent architecture  
-- 🔁 Automatic resume from last processed state 
+- 🔁 Automatic resume from last processed state
+- ♻️ Resetlogs‑aware and SCN resetting for seamless replication
 - 📊 Applies changes in **batches** for better performance
 - 📦 Lightweight (Python-based, minimal dependencies)
 
