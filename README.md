@@ -42,7 +42,6 @@ PostgreSQL (Apply Engine)
 Make sure the following are installed:
 
 - Python 3.8+
-- Oracle Client
 - PostgreSQL instance (accessible)
 
 ### Required Python packages:
