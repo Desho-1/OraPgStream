@@ -43,6 +43,7 @@ Make sure the following are installed:
 
 - Python 3.8+
 - PostgreSQL instance (accessible)
+- Oracle instance (accessible)
 
 ### Required Python packages:
 - `oracledb`
