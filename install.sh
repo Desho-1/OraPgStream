@@ -99,7 +99,7 @@ echo "📁 Creating project structure..."
 #tar -xzvf OraPgStream.tar.gz
 #tar -xzvf PgApply.tar.gz
 #mv OraPgStream pg_apply ~/ora2pg-cdc/cdc_engine/
-#mv main.py ~/ora2pg-cdc/orchestrator/ 
+#mv main.py ~/ora2pg-cdc/orchestrator/
 cd ~/ora2pg-cdc
 
 # -------------------------------
@@ -108,10 +108,31 @@ cd ~/ora2pg-cdc
 echo "🗄 Initializing SQLite..."
 
 sqlite3 ~/ora2pg-cdc/state/state.db <<EOF
-CREATE TABLE IF NOT EXISTS scn_state (
+
+CREATE TABLE scn_state (
     last_scn INTEGER,
     incarnation INTEGER DEFAULT 0
 );
+CREATE TABLE applied_fingerprints (
+                fingerprint TEXT PRIMARY KEY,
+                applied_at  INTEGER NOT NULL,
+                scn         INTEGER NOT NULL
+            );
+CREATE TABLE fk_retry_queue (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                scn         INTEGER NOT NULL,
+                xid         TEXT    NOT NULL,
+                owner       TEXT    NOT NULL,
+                tbl         TEXT    NOT NULL,
+                operation   TEXT    NOT NULL,
+                sql_redo    TEXT    NOT NULL,
+                fingerprint TEXT    NOT NULL UNIQUE,
+                attempt     INTEGER NOT NULL DEFAULT 0,
+                last_error  TEXT,
+                queued_at   INTEGER NOT NULL
+            , fk_attempts INTEGER NOT NULL DEFAULT 0, error_attempts INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE sqlite_sequence(name,seq);
+
 
 INSERT INTO scn_state (last_scn, incarnation)
 VALUES (0, 0);
