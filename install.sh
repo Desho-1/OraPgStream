@@ -63,28 +63,8 @@ pip install oracledb psycopg2-binary pyyaml sqlparse
 
 echo "✅ Python environment ready"
 
-# -------------------------------
-# 3️⃣ ORACLE CLIENT
-# -------------------------------
-echo "🔍 Checking Oracle Instant Client..."
 
-DEFAULT_ORACLE_PATH="/opt/oracle/instantclient_23_26"
-
-if [ -d "$DEFAULT_ORACLE_PATH" ]; then
-    ORACLE_PATH=$DEFAULT_ORACLE_PATH
-    echo "✅ Found Oracle client at $ORACLE_PATH"
-else
-    echo "❌ Oracle client not found"
-
-    read -p "👉 Enter Oracle Instant Client path: " ORACLE_PATH
-
-    if [ ! -d "$ORACLE_PATH" ]; then
-        echo "❌ Invalid path. Exiting."
-        exit 1
-    fi
-fi
-
-# Export environment
+# 3️⃣ Export environment
 export LD_LIBRARY_PATH=$ORACLE_PATH
 export PATH=$PATH:$ORACLE_PATH
 
@@ -95,11 +75,11 @@ echo "✅ Oracle environment configured"
 # -------------------------------
 echo "📁 Creating project structure..."
 
-#mkdir -p ~/ora2pg-cdc/{orchestrator,cdc_engine,state,config}
-#tar -xzvf OraPgStream.tar.gz
-#tar -xzvf PgApply.tar.gz
-#mv OraPgStream pg_apply ~/ora2pg-cdc/cdc_engine/
-#mv main.py ~/ora2pg-cdc/orchestrator/
+mkdir -p ~/ora2pg-cdc/{orchestrator,cdc_engine,state,config}
+tar -xzvf OraPgStream.tar.gz
+tar -xzvf PgApply.tar.gz
+mv OraPgStream pg_apply ~/ora2pg-cdc/cdc_engine/
+mv main.py ~/ora2pg-cdc/orchestrator/
 cd ~/ora2pg-cdc
 
 # -------------------------------
@@ -285,6 +265,6 @@ EOF
 # -------------------------------
 echo ""
 echo "================================="
+echo "Installation finished!"
 echo "Next step:"
-echo "👉 Activate env: source venv/bin/activate"
 echo "👉 Run your CDC tool"
