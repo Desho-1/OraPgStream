@@ -79,7 +79,6 @@ These steps are mandatory for accurate CDC
 
 - download OraPgStream.tar.gz, PgApply.tar.gz & install.sh
 - bash install.sh
-- source venv/bin/activate
 - run `./OraPgStream`
 ### ⚠️ Note: OraPgStream runs continuously as a live replication tool
 To stop replication safely, press `Ctrl+C`.
