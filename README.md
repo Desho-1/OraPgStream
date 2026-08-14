@@ -105,3 +105,16 @@ To stop replication safely, press `Ctrl+C`.
 | **Debezium + Kafka** | Milliseconds | Very high | Kafka, ZK, Connect | $$$ |
 | **OraPgStream** | Milliseconds | **Low** | **None** | **Free** |
 
+
+## CDC Solution Comparison
+
+| Approach | Latency | Complexity | Dependencies | License Cost |
+|---|---|---|---|---|
+| **Ora2pg (Batch)** | Minutes / Hours | Low | None | Free |
+| **Oracle GoldenGate** | Near real-time | High | GoldenGate infrastructure | Commercial |
+| **Debezium + Kafka** | Near real-time | High | Kafka, Kafka Connect | Infrastructure cost |
+| **OraPgStream** | Near real-time | Low | None | Free |
+
+> **Note:** Self-managed deployments may require additional infrastructure and operational resources such as servers, storage, monitoring, maintenance, and platform administration. OraPgStream requires no external streaming infrastructure.
+
+
